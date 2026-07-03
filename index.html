@@ -10,19 +10,44 @@
 :root{
   --bg:#f7f8fa; --panel:#ffffff; --ink:#1c2430; --muted:#5b6675;
   --line:#e3e7ee; --accent:#1f6feb; --accent-soft:#e8f0fe; --chip:#eef1f6;
+  --good-bg:#e3f3e8; --good-ink:#1e6b34; --warn-bg:#fbf0d9; --warn-ink:#8a5b06;
 }
 @media (prefers-color-scheme:dark){
   :root{--bg:#0f1318;--panel:#171c23;--ink:#e6eaf0;--muted:#9aa6b6;
-  --line:#28303a;--accent:#5b9bff;--accent-soft:#16263f;--chip:#222a34;}
+  --line:#28303a;--accent:#5b9bff;--accent-soft:#16263f;--chip:#222a34;
+  --good-bg:#12301c;--good-ink:#86d8a0;--warn-bg:#3a2d0f;--warn-ink:#e9c06a;}
 }
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);
   font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
 .wrap{max-width:920px;margin:0 auto;padding:32px 18px 70px;}
-.brand{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;}
+.top{display:flex;align-items:flex-start;gap:12px;}
+.top .brand{flex:1;}
+.brand{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
 .brand h1{font-size:23px;margin:0;}
 .brand .sub{font-size:13px;color:var(--muted);}
 header p{color:var(--muted);font-size:13px;margin:0;}
+.btn-sobre{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12.5px;
+  color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:8px;
+  padding:6px 12px;cursor:pointer;white-space:nowrap;}
+.btn-sobre:hover{color:var(--accent);border-color:var(--accent);}
+.btn-sobre svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;}
+.updates{margin-top:18px;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:10px 14px;font-size:12.5px;}
+.updates .linha{display:flex;align-items:center;flex-wrap:wrap;gap:8px;}
+.updates .rotulo{color:var(--muted);}
+.updates b{font-weight:600;}
+.chip{font-size:11px;font-weight:600;border-radius:10px;padding:2px 9px;
+  background:var(--chip);color:var(--muted);}
+.chip.bom{background:var(--good-bg);color:var(--good-ink);}
+.btn-hist{margin-left:auto;font:inherit;font-size:11.5px;color:var(--muted);background:none;
+  border:1px solid var(--line);border-radius:7px;padding:3px 9px;cursor:pointer;}
+.btn-hist:hover{color:var(--accent);border-color:var(--accent);}
+.hist{display:none;border-top:1px solid var(--line);margin-top:9px;padding-top:8px;
+  color:var(--muted);line-height:1.9;font-size:12px;}
+.hist.aberto{display:block;}
+.hist .data{color:var(--ink);font-weight:600;margin-right:6px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-top:24px;}
 .card{display:flex;flex-direction:column;text-decoration:none;color:inherit;
   background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;
@@ -37,8 +62,23 @@ header p{color:var(--muted);font-size:13px;margin:0;}
 .tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;}
 .tags span{font-size:10.5px;font-weight:600;background:var(--chip);color:var(--muted);
   border-radius:5px;padding:2px 7px;}
+.chip-data{align-self:flex-start;font-size:10.5px;font-weight:600;border-radius:5px;
+  padding:2px 7px;margin-top:8px;background:var(--chip);color:var(--muted);}
+.chip-data.bom{background:var(--good-bg);color:var(--good-ink);}
+.chip-data.alerta{background:var(--warn-bg);color:var(--warn-ink);}
 .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px;border:1px dashed var(--line);border-radius:14px;}
-footer{margin-top:34px;color:var(--muted);font-size:11.5px;text-align:center;}
+footer{margin-top:34px;color:var(--muted);font-size:11.5px;text-align:center;line-height:1.7;}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;
+  align-items:center;justify-content:center;z-index:50;padding:20px;}
+.modal-bg.aberto{display:flex;}
+.modal{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  max-width:560px;width:100%;max-height:85vh;overflow:auto;padding:22px 24px;position:relative;}
+.modal h2{font-size:17px;margin:0 30px 4px 0;}
+.modal h3{font-size:13.5px;margin:16px 0 4px;}
+.modal p{font-size:13px;color:var(--muted);margin:0;line-height:1.65;}
+.fechar{position:absolute;top:14px;right:14px;font:inherit;font-size:18px;line-height:1;
+  color:var(--muted);background:none;border:none;cursor:pointer;padding:4px 8px;}
+.fechar:hover{color:var(--ink);}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFXMXE47YV"></script>
@@ -52,16 +92,40 @@ footer{margin-top:34px;color:var(--muted);font-size:11.5px;text-align:center;}
 <body>
 <div class="wrap">
   <header>
-    <div class="brand">
-      <h1>CAFEAuds</h1>
-      <span class="sub">Caixa de Ferramentas do Auditor em Saúde Suplementar</span>
+    <div class="top">
+      <div class="brand">
+        <h1>CAFEAuds</h1>
+        <span class="sub">Caixa de Ferramentas do Auditor em Saúde Suplementar</span>
+      </div>
+      <button class="btn-sobre" id="btnSobre" aria-haspopup="dialog" aria-controls="modalSobre">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><line x1="12" y1="11" x2="12" y2="16"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        Sobre
+      </button>
     </div>
     <p>Módulos de consulta e análise para auditoria médica em saúde suplementar. Selecione um módulo para abrir.</p>
   </header>
+  <div class="updates" id="updates" hidden></div>
   <div class="grid" id="grid"></div>
-  <footer>CAFEAuds &middot; Ferramentas para Auditoria em Saúde Suplementar</footer>
+  <footer>
+    CAFEAuds &middot; Ferramentas para Auditoria em Saúde Suplementar<br>
+    Conteúdo capturado automaticamente de fontes oficiais (ANS, ANVISA, CFM, CONITEC). Confira a vigência na fonte antes de citar.
+  </footer>
 </div>
 
+<div class="modal-bg" id="modalSobre" role="dialog" aria-modal="true" aria-labelledby="tituloSobre">
+  <div class="modal">
+    <button class="fechar" id="btnFechar" aria-label="Fechar">&times;</button>
+    <h2 id="tituloSobre">Sobre o CAFEAuds</h2>
+    <h3>Para que serve</h3>
+    <p>O CAFEAuds reúne, em páginas de consulta rápida, as bases oficiais usadas na auditoria médica em saúde suplementar: resoluções normativas, pareceres técnicos, correlação TUSS com DUT e propostas de atualização do Rol (ANS), medicamentos com registro ativo (ANVISA), normas dos conselhos de medicina (CFM e CRMs), recomendações da CONITEC e a CID-10.</p>
+    <h3>Como usar</h3>
+    <p>Cada card abre um módulo independente, com busca instantânea e filtros. As páginas funcionam offline depois de carregadas, adaptam-se ao modo escuro do sistema e podem ser usadas no celular. Os termos digitados nas buscas são processados no seu navegador e não são enviados a nenhum servidor.</p>
+    <h3>Avisos sobre o conteúdo</h3>
+    <p>Os dados são capturados automaticamente das fontes oficiais nas datas indicadas em cada módulo e podem conter defasagens ou falhas de extração. O CAFEAuds é ferramenta de apoio à consulta: não substitui a fonte oficial nem o juízo técnico do auditor. Verifique sempre a vigência da norma antes de citar. O site usa Google Analytics apenas para estatísticas de acesso.</p>
+  </div>
+</div>
+
+<script src="atualizacoes.js"></script>
 <script>
 const MODULOS = [
   {
@@ -109,7 +173,7 @@ const MODULOS = [
   {
     arquivo: "buscador-medicamentos.html",
     titulo: "Medicamentos ANVISA",
-    descricao: "Busca os 9.875 medicamentos com registro ativo na ANVISA por nome ou princípio ativo, com acesso direto ao Bulário Eletrônico para consulta da bula.",
+    descricao: "Busca os quase 10 mil medicamentos com registro ativo na ANVISA por nome ou princípio ativo, com acesso direto ao Bulário Eletrônico para consulta da bula.",
     tags: ["ANVISA", "Medicamentos", "Bulário"],
     icone: "remedio"
   },
@@ -132,6 +196,22 @@ const ICONES = {
   fluxo:'<rect x="4" y="3" width="7" height="5" rx="1"/><rect x="13" y="16" width="7" height="5" rx="1"/><path d="M7.5 8v5a3 3 0 0 0 3 3h3"/>'
 };
 
+const ATU = window.CAFEAUDS_ATUALIZACOES || null;
+
+function fmtData(iso){
+  const p = (iso || '').split(' ')[0].split('-');
+  return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : (iso || '');
+}
+function idadeDias(iso){
+  const d = new Date((iso || '').split(' ')[0] + 'T12:00:00');
+  return isNaN(d) ? null : Math.floor((Date.now() - d.getTime()) / 864e5);
+}
+function classeIdade(iso){
+  const d = idadeDias(iso);
+  if(d === null) return '';
+  return d < 7 ? 'bom' : (d <= 30 ? '' : 'alerta');
+}
+
 const grid = document.getElementById('grid');
 if(!MODULOS.length){
   grid.innerHTML = '<div class="empty">Nenhum módulo disponível.</div>';
@@ -139,13 +219,48 @@ if(!MODULOS.length){
   grid.innerHTML = MODULOS.map(a => {
     const svg = ICONES[a.icone] || ICONES.doc;
     const tags = (a.tags||[]).map(t=>'<span>'+t+'</span>').join('');
+    let chipData = '';
+    if(ATU && ATU.modulos && ATU.modulos[a.arquivo]){
+      const iso = ATU.modulos[a.arquivo];
+      chipData = '<span class="chip-data '+classeIdade(iso)+'">atualizado em '+fmtData(iso)+'</span>';
+    }
     return '<a class="card" href="'+encodeURI(a.arquivo)+'">'
       + '<div class="ico"><svg viewBox="0 0 24 24">'+svg+'</svg></div>'
       + '<h2>'+a.titulo+'</h2>'
       + '<p>'+a.descricao+'</p>'
-      + '<div class="tags">'+tags+'</div></a>';
+      + '<div class="tags">'+tags+'</div>'
+      + chipData + '</a>';
   }).join('');
 }
+
+if(ATU && ATU.ultima_varredura){
+  const up = document.getElementById('updates');
+  const hora = ATU.ultima_varredura.split(' ')[1] || '';
+  const chips = (ATU.mudancas && ATU.mudancas.length)
+    ? ATU.mudancas.map(m => '<span class="chip bom">'+m+'</span>').join('')
+    : '<span class="chip">sem novidade nas bases</span>';
+  const hist = (ATU.historico || []).map(h =>
+    '<div><span class="data">'+fmtData(h.quando)+'</span>'+h.resumo+'</div>').join('');
+  up.innerHTML = '<div class="linha"><span class="rotulo">Última varredura:</span>'
+    + '<b>'+fmtData(ATU.ultima_varredura)+(hora ? ' às '+hora : '')+'</b>'
+    + chips
+    + (hist ? '<button class="btn-hist" id="btnHist" aria-expanded="false">histórico</button>' : '')
+    + '</div>'
+    + (hist ? '<div class="hist" id="hist">'+hist+'</div>' : '');
+  up.hidden = false;
+  const bh = document.getElementById('btnHist');
+  if(bh) bh.addEventListener('click', () => {
+    const h = document.getElementById('hist');
+    h.classList.toggle('aberto');
+    bh.setAttribute('aria-expanded', h.classList.contains('aberto') ? 'true' : 'false');
+  });
+}
+
+const modal = document.getElementById('modalSobre');
+document.getElementById('btnSobre').addEventListener('click', () => modal.classList.add('aberto'));
+document.getElementById('btnFechar').addEventListener('click', () => modal.classList.remove('aberto'));
+modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('aberto'); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') modal.classList.remove('aberto'); });
 </script>
 </body>
 </html>
