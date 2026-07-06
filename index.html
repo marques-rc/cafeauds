@@ -117,7 +117,7 @@ footer{margin-top:34px;color:var(--muted);font-size:11.5px;text-align:center;lin
     <button class="fechar" id="btnFechar" aria-label="Fechar">&times;</button>
     <h2 id="tituloSobre">Sobre o CAFEAuds</h2>
     <h3>Para que serve</h3>
-    <p>O CAFEAuds reúne, em páginas de consulta rápida, as bases oficiais usadas na auditoria médica em saúde suplementar: resoluções normativas, pareceres técnicos, correlação TUSS com DUT e propostas de atualização do Rol (ANS), medicamentos com registro ativo (ANVISA), normas dos conselhos de medicina (CFM e CRMs), recomendações da CONITEC e a CID-10.</p>
+    <p>O CAFEAuds reúne, em páginas de consulta rápida, as bases oficiais usadas na auditoria médica em saúde suplementar: resoluções normativas, pareceres técnicos, correlação TUSS com DUT e propostas de atualização do Rol (ANS), medicamentos com registro ativo (ANVISA), normas dos conselhos de medicina (CFM e CRMs), recomendações da CONITEC, os PCDT do Ministério da Saúde e a CID-10.</p>
     <h3>Como usar</h3>
     <p>Cada card abre um módulo independente, com busca instantânea e filtros. As páginas funcionam offline depois de carregadas, adaptam-se ao modo escuro do sistema e podem ser usadas no celular. Os termos digitados nas buscas são processados no seu navegador e não são enviados a nenhum servidor.</p>
     <h3>Avisos sobre o conteúdo</h3>
@@ -169,6 +169,13 @@ const MODULOS = [
     descricao: "Consulta as 1.214 recomendações da CONITEC desde 2012 sobre incorporação de tecnologias no SUS: pesquisa por tecnologia, indicação ou portaria, filtra por decisão (incorporar, não incorporar, PCDT, excluir), tipo e ano.",
     tags: ["CONITEC", "SUS", "Incorporação", "PCDT"],
     icone: "fluxo"
+  },
+  {
+    arquivo: "pcdt-ministerio-saude.html",
+    titulo: "PCDT do Ministério da Saúde",
+    descricao: "Consulta os 179 Protocolos Clínicos e Diretrizes Terapêuticas publicados no portal gov.br: pesquisa por protocolo ou descrição, filtra por letra e por idade da última atualização, com link direto para o PDF oficial.",
+    tags: ["PCDT", "Ministério da Saúde", "Protocolos", "SUS"],
+    icone: "livro"
   },
   {
     arquivo: "buscador-medicamentos.html",
