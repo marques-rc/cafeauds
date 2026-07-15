@@ -1,7 +1,7 @@
 window.CAFEAUDS_ATUALIZACOES = {
-  "ultima_varredura": "2026-07-14 08:04",
+  "ultima_varredura": "2026-07-15 13:44",
   "mudancas": [
-    "Medicamentos ANVISA: 9.858 ativos"
+    "CFM: 1 norma(s) nova(s)"
   ],
   "modulos": {
     "buscador-tuss-dut.html": "2026-06-26",
@@ -12,9 +12,13 @@ window.CAFEAUDS_ATUALIZACOES = {
     "recomendacoes-conitec.html": "2026-07-02",
     "pcdt-ministerio-saude.html": "2026-07-03",
     "buscador-medicamentos.html": "2026-07-14",
-    "normas-cfm.html": "2026-07-01"
+    "normas-cfm.html": "2026-07-15"
   },
   "historico": [
+    {
+      "quando": "2026-07-15 13:44",
+      "resumo": "CFM: 1 norma(s) nova(s)"
+    },
     {
       "quando": "2026-07-14 08:04",
       "resumo": "Medicamentos ANVISA: 9.858 ativos"
@@ -50,10 +54,6 @@ window.CAFEAUDS_ATUALIZACOES = {
     {
       "quando": "2026-07-03 16:39",
       "resumo": "Medicamentos ANVISA: 9.893 ativos"
-    },
-    {
-      "quando": "2026-07-02 10:38",
-      "resumo": "CONITEC integrada ao CAFEAuds: 1.214 recomendações desde 2012"
     }
   ]
 };
