@@ -1,8 +1,6 @@
 window.CAFEAUDS_ATUALIZACOES = {
-  "ultima_varredura": "2026-07-15 13:44",
-  "mudancas": [
-    "CFM: 1 norma(s) nova(s)"
-  ],
+  "ultima_varredura": "2026-07-15 14:19",
+  "mudancas": [],
   "modulos": {
     "buscador-tuss-dut.html": "2026-06-26",
     "resolucoes-ans.html": "2026-07-01",
