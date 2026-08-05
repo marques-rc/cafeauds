@@ -1,8 +1,9 @@
 window.CAFEAUDS_ATUALIZACOES = {
-  "ultima_varredura": "2026-08-04 10:37",
+  "ultima_varredura": "2026-08-05 16:49",
   "mudancas": [
-    "Medicamentos ANVISA: 9.891 ativos",
-    "CFM: 2 norma(s) nova(s)"
+    "Tabelas vigentes: 2 atualizada(s)",
+    "Medicamentos ANVISA: 9.871 ativos",
+    "PCDT: 1 atualizado(s)"
   ],
   "modulos": {
     "buscador-tuss-dut.html": "2026-06-26",
@@ -11,11 +12,15 @@ window.CAFEAUDS_ATUALIZACOES = {
     "buscador-cid10.html": "2026-06-26",
     "propostas-atualizacao-rol.html": "2026-07-10",
     "recomendacoes-conitec.html": "2026-07-02",
-    "pcdt-ministerio-saude.html": "2026-08-03",
-    "buscador-medicamentos.html": "2026-08-04",
+    "pcdt-ministerio-saude.html": "2026-08-05",
+    "buscador-medicamentos.html": "2026-08-05",
     "normas-cfm.html": "2026-08-04"
   },
   "historico": [
+    {
+      "quando": "2026-08-05 16:49",
+      "resumo": "Tabelas vigentes: 2 atualizada(s); Medicamentos ANVISA: 9.871 ativos; PCDT: 1 atualizado(s)"
+    },
     {
       "quando": "2026-08-04 10:37",
       "resumo": "Medicamentos ANVISA: 9.891 ativos; CFM: 2 norma(s) nova(s)"
@@ -51,10 +56,6 @@ window.CAFEAUDS_ATUALIZACOES = {
     {
       "quando": "2026-07-21 07:43",
       "resumo": "Medicamentos ANVISA: 9.860 ativos"
-    },
-    {
-      "quando": "2026-07-20 08:32",
-      "resumo": "Medicamentos ANVISA: 9.868 ativos"
     }
   ]
 };
