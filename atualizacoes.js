@@ -6,7 +6,7 @@ window.CAFEAUDS_ATUALIZACOES = {
     "PCDT: 1 atualizado(s)"
   ],
   "modulos": {
-    "buscador-tuss-dut.html": "2026-06-26",
+    "buscador-tuss-dut.html": "2026-08-05",
     "resolucoes-ans.html": "2026-07-22",
     "pareceres-ans.html": "2026-07-01",
     "buscador-cid10.html": "2026-06-26",
