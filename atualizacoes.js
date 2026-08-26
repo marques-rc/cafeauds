@@ -1,9 +1,6 @@
 window.CAFEAUDS_ATUALIZACOES = {
-  "ultima_varredura": "2026-08-26 17:49",
-  "mudancas": [
-    "Medicamentos ANVISA: 9.883 ativos",
-    "CFM: 1 norma(s) nova(s)"
-  ],
+  "ultima_varredura": "2026-08-26 17:53",
+  "mudancas": [],
   "modulos": {
     "buscador-tuss-dut.html": "2026-08-17",
     "resolucoes-ans.html": "2026-07-22",
