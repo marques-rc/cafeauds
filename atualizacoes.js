@@ -1,11 +1,8 @@
 window.CAFEAUDS_ATUALIZACOES = {
-  "ultima_varredura": "2026-10-06 10:51",
-  "mudancas": [
-    "Tabelas vigentes: 2 atualizada(s)",
-    "Medicamentos ANVISA: 9.896 ativos"
-  ],
+  "ultima_varredura": "2026-10-06 11:28",
+  "mudancas": [],
   "modulos": {
-    "buscador-tuss-dut.html": "2026-08-17",
+    "buscador-tuss-dut.html": "2026-10-06",
     "resolucoes-ans.html": "2026-09-23",
     "pareceres-ans.html": "2026-07-01",
     "buscador-cid10.html": "2026-06-26",
